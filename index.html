@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Story - Girls I Talked To</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #121212; /* Dark background */
+            color: #00ff00; /* Neon Green Text */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Dystopian Background (digital code rain) */
+        .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://media.giphy.com/media/xTiTnJqf8frx7V8JkY/giphy.gif') repeat;
+            background-size: cover;
+            animation: glitch 1.5s infinite;
+            z-index: -1;
+        }
+
+        /* Glitch Effect Keyframes */
+        @keyframes glitch {
+            0% { background-position: 0 0; }
+            25% { background-position: -10px -10px; }
+            50% { background-position: 10px 10px; }
+            75% { background-position: -15px -15px; }
+            100% { background-position: 0 0; }
+        }
+
+        /* Header Styling */
+        header {
+            font-size: 50px;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            animation: text-blink 1s infinite;
+        }
+
+        /* Typewriter Animation for Text */
+        .typewriter {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff00;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 4s steps(40) 1s forwards;
+        }
+
+        /* Header blinking animation */
+        @keyframes text-blink {
+            0% { text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; }
+            50% { text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff, 0 0 35px #ff00ff; }
+            100% { text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; }
+        }
+
+        /* Navigation Menu Styling */
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: #00ff00;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            margin: 10px;
+            border: 2px solid #00ff00;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #00ff00;
+            color: black;
+        }
+
+        /* Content Box Styling */
+        .content {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Popup Styling */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #ff0000; /* Red text for emphasis */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+            z-index: 1000;
+            font-size: 20px;
+            width: 80%;
+            max-width: 450px;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Popup Button */
+        #popup button {
+            background-color: #ff0000;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        #popup button:hover {
+            background-color: #cc0000;
+        }
+
+        /* Fade-in animation for popup */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                font-size: 40px;
+            }
+
+            .typewriter {
+                font-size: 18px;
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 8px 15px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            ul li {
+                font-size: 16px;
+            }
+
+            /* Popup */
+            #popup {
+                width: 90%;
+                font-size: 18px;
+            }
+
+            #popup button {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 30px;
+            }
+
+            .typewriter {
+                font-size: 16px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            ul li {
+                font-size: 14px;
+            }
+
+            /* Popup */
+            #popup {
+                width: 95%;
+                font-size: 16px;
+            }
+
+            #popup button {
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Background animation -->
+<div class="bg"></div>
+
+<header>
+    Girls I Talked To - My Story
+</header>
+
+<div class="typewriter">I hope you understand the real me.</div>
+
+<nav>
+    <a href="#kolkata">Kolkata</a>
+    <a href="#bihar">Bihar</a>
+</nav>
+
+<div class="content">
+    <section id="kolkata">
+        <h2>Girls I Talked To in Kolkata</h2>
+        <ul>
+            <li>1. Umme Aiman (GNS)</li>
+            <li>2. Aysha (GNS)</li>
+            <li>3. Jainab (GNS)</li>
+            <li>4. Hifza (GNS)</li>
+            <li>5. Sania Parveen (GNS)</li>
+            <li>6. Anum Rahi (AIS)</li>
+            <li>7. Masuma Mullick (AIS)</li>
+            <li>8. Sadia Zaki (AIS)</li>
+            <li>9. Nusrat Najib (AIS)</li>
+            <li>10. Suhana Khatoon</li>
+            <li>11. Zeenat Khatoon (AIS)</li>
+            <li>12. Zeenat Banu (AIS)</li>
+            <li>13. Anisa Perveen (AIS)</li>
+            <li>14. Naisa Afroj (AIS)</li>
+            <li>15. Zeba Khatoon (AIS)</li>
+            <li>16. Sidiqah (AIS)</li>
+            <li>17. Kahkasha (AIS)</li>
+            <li>18. Mehwish (AIS)</li>
+            <li>19. Sumaiya Haque (AIS)</li>
+        </ul>
+    </section>
+
+    <section id="bihar">
+        <h2>Girls I Talked To in Bihar</h2>
+        <ul>
+            <li>1. Reshma</li>
+            <li>2. Sadia Sanobar (MAU)</li>
+        </ul>
+    </section>
+</div>
+
+<!-- Popup after 3 seconds -->
+<div id="popup">
+    <p><strong>Mai ghatiya insan hu, sab se characterless. Course me to DIE.</strong></p>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<script>
+    // Show popup after 3 seconds (3000 milliseconds)
+    setTimeout(function() {
+        document.getElementById('popup').style.display = 'block';
+    }, 3000);
+
+    // Function to close the popup
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
