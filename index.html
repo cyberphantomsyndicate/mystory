@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,8 +15,9 @@
         /* Body Styling */
         body {
             font-family: 'Courier New', Courier, monospace;
-            background: #121212; /* Dark background */
-            color: #00ff00; /* Neon Green Text */
+            background: url('https://images.unsplash.com/photo-1606478283961-7c25f99a2090') no-repeat center center fixed;
+            background-size: cover;
+            color: #f5f5f5; /* Light Text for readability */
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -24,54 +25,45 @@
             position: relative;
             overflow: hidden;
             text-align: center;
+            background-attachment: fixed;
+            margin: 0;
         }
 
-        /* Dystopian Background (digital code rain) */
-        .bg {
+        /* Dark overlay for the graveyard background */
+        .bg-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://media.giphy.com/media/xTiTnJqf8frx7V8JkY/giphy.gif') repeat;
-            background-size: cover;
-            animation: glitch 1.5s infinite;
+            background: rgba(0, 0, 0, 0.7); /* Dark overlay to dim the background */
             z-index: -1;
-        }
-
-        /* Glitch Effect Keyframes */
-        @keyframes glitch {
-            0% { background-position: 0 0; }
-            25% { background-position: -10px -10px; }
-            50% { background-position: 10px 10px; }
-            75% { background-position: -15px -15px; }
-            100% { background-position: 0 0; }
         }
 
         /* Header Styling */
         header {
-            font-size: 50px;
-            color: #00ff00;
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+            font-size: 4rem;
+            color: #ff0000; /* Red Text for emphasis */
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
             animation: text-blink 1s infinite;
         }
 
         /* Typewriter Animation for Text */
         .typewriter {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
-            color: #00ff00;
+            color: #ff0000;
             overflow: hidden;
             white-space: nowrap;
             width: 0;
             animation: typing 4s steps(40) 1s forwards;
         }
 
-        /* Header blinking animation */
+        /* Blinking Text Animation */
         @keyframes text-blink {
-            0% { text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; }
-            50% { text-shadow: 0 0 15px #ff00ff, 0 0 25px #ff00ff, 0 0 35px #ff00ff; }
-            100% { text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; }
+            0% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; }
+            50% { text-shadow: 0 0 15px #ff4500, 0 0 25px #ff4500, 0 0 35px #ff4500; }
+            100% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; }
         }
 
         /* Navigation Menu Styling */
@@ -80,32 +72,35 @@
         }
 
         nav a {
-            color: #00ff00;
+            color: #ff0000;
             text-decoration: none;
             padding: 10px 20px;
-            font-size: 20px;
+            font-size: 1rem;
             margin: 10px;
-            border: 2px solid #00ff00;
+            border: 2px solid #ff0000;
             transition: 0.3s;
         }
 
         nav a:hover {
-            background-color: #00ff00;
+            background-color: #ff0000;
             color: black;
         }
 
         /* Content Box Styling */
         .content {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
             margin-top: 40px;
             text-align: left;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         h2 {
-            font-size: 28px;
+            font-size: 1.5rem;
             margin-bottom: 20px;
         }
 
@@ -115,7 +110,7 @@
         }
 
         li {
-            font-size: 18px;
+            font-size: 1rem;
             margin: 10px 0;
         }
 
@@ -126,15 +121,15 @@
             top: 30%;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.9);
-            color: #ff0000; /* Red text for emphasis */
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ff0000; /* Red text */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
             z-index: 1000;
-            font-size: 20px;
+            font-size: 1rem;
             width: 80%;
-            max-width: 450px;
+            max-width: 400px;
             animation: fadeIn 1s ease-out forwards;
         }
 
@@ -144,7 +139,7 @@
             color: black;
             border: none;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 1rem;
             cursor: pointer;
             border-radius: 5px;
             margin-top: 15px;
@@ -164,53 +159,16 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             header {
-                font-size: 40px;
+                font-size: 2.5rem;
             }
 
             .typewriter {
-                font-size: 18px;
+                font-size: 1rem;
             }
 
             nav a {
-                font-size: 16px;
+                font-size: 1rem;
                 padding: 8px 15px;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            ul li {
-                font-size: 16px;
-            }
-
-            /* Popup */
-            #popup {
-                width: 90%;
-                font-size: 18px;
-            }
-
-            #popup button {
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                font-size: 30px;
-            }
-
-            .typewriter {
-                font-size: 16px;
-            }
-
-            nav a {
-                font-size: 14px;
-                padding: 6px 12px;
             }
 
             .content {
@@ -218,30 +176,66 @@
             }
 
             h2 {
-                font-size: 22px;
+                font-size: 1.2rem;
             }
 
             ul li {
-                font-size: 14px;
+                font-size: 0.9rem;
             }
 
             /* Popup */
             #popup {
-                width: 95%;
-                font-size: 16px;
+                width: 85%;
+                font-size: 1rem;
             }
 
             #popup button {
-                font-size: 12px;
+                font-size: 1rem;
             }
         }
 
+        @media (max-width: 480px) {
+            header {
+                font-size: 2rem;
+            }
+
+            .typewriter {
+                font-size: 0.9rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+
+            ul li {
+                font-size: 0.8rem;
+            }
+
+            /* Popup */
+            #popup {
+                width: 90%;
+                font-size: 0.9rem;
+            }
+
+            #popup button {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-<!-- Background animation -->
-<div class="bg"></div>
+<!-- Dark overlay for the graveyard background -->
+<div class="bg-overlay"></div>
 
 <header>
     Girls I Talked To - My Story
@@ -284,28 +278,4 @@
         <h2>Girls I Talked To in Bihar</h2>
         <ul>
             <li>1. Reshma</li>
-            <li>2. Sadia Sanobar (MAU)</li>
-        </ul>
-    </section>
-</div>
-
-<!-- Popup after 3 seconds -->
-<div id="popup">
-    <p><strong>Mai ghatiya insan hu, sab se characterless. Course me to DIE.</strong></p>
-    <button onclick="closePopup()">Close</button>
-</div>
-
-<script>
-    // Show popup after 3 seconds (3000 milliseconds)
-    setTimeout(function() {
-        document.getElementById('popup').style.display = 'block';
-    }, 3000);
-
-    // Function to close the popup
-    function closePopup() {
-        document.getElementById('popup').style.display = 'none';
-    }
-</script>
-
-</body>
-</html>
+            <li>2. Sadia Sanobar (
